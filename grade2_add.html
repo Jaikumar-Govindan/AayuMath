@@ -9,8 +9,8 @@
 
   function setNumbers()
   {
-      var num1 = Math.floor(Math.random() * 10);
-      var num2 = Math.floor(Math.random() * 10);
+      var num1 = Math.floor(Math.random() * 100);
+      var num2 = Math.floor(Math.random() * 100);
       document.getElementById("number1").value = num1;
       document.getElementById("number2").value = num2;
       document.getElementById("answer").value = "";
@@ -91,22 +91,31 @@
         <h1><span class="label label-default">Aa yu Math</span></h1>
       </div>
     </div>
-    <div>
-      <div align="center" class="col-25">
+    <div class="row">
+      <div align="center" class="col-100">
+        <h3><span class="label label-info">2nd Grade : Addition Problems</span></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div align="center" class="col-9">
+        <h3><span class="label label-primary"></span></h3>
+      </div>
+      <div align="center" class="col-16">
         <h3><span class="label label-success">Correct</span></h3>
       </div>
       <div align="center" class="col-9">
         <input type="text" class="form-control" id="correct_answers" value=0 readonly>
       </div>
-      <div align="center" class="col-25">
+      <div align="center" class="col-9">
+        <h3><span class="label label-primary"></span></h3>
+      </div>
+      <div align="center" class="col-16">
         <h3><span class="label label-danger">Incorrect</span></h3>
       </div>
       <div align="center" class="col-9">
         <input type="text" class="form-control" id="wrong_answers" value=0 readonly>
       </div>
-    </div>
-    <div class="row">
-      <div align="right" class="col-100">
+      <div align="right" class="col-25">
         <label for="timer_label" />
         <input type="text" id="timer_label" name="timer_label" value="Timer: 10s" readonly>
       </div>
@@ -120,19 +129,22 @@
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-16">
+      <div align="center" class="col-9">
         <h3><span class="label label-primary"></span></h3>
       </div>
-      <div align="center" class="col-9">
-        <h3><span class="label label-primary">+</span></h3>
+      <div align="center" class="col-16">
+        <h3><span class="label label-primary">Addition +</span></h3>
       </div>
       <div align="center" class="col-25">
         <input type="text" id="number2" />
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-25">
-        <h3><span class="label label-info">Answer</span></h3>
+      <div align="center" class="col-9">
+        <h3><span class="label label-primary"></span></h3>
+      </div>
+      <div align="center" class="col-16">
+        <h3><span class="label label-info">Answer = </span></h3>
       </div>
       <div align="center" class="col-25">
         <input type="text" id="answer" autofocus />

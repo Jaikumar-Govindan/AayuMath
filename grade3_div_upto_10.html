@@ -5,12 +5,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
  <script type="text/javascript">
   // Update the count down every 1 second
-  var distance = 10;
+  var distance = 15;
 
   function setNumbers()
   {
-      var num1 = Math.floor(Math.random() * 10);
+      var num1 = Math.floor(Math.random() * 100);
       var num2 = Math.floor(Math.random() * 10);
+      while ((num1 < num2) || num2 == 0 || (num1%num2!=0))
+      {
+         num1 = Math.floor(Math.random() * 100);
+         num2 = Math.floor(Math.random() * 10);
+      }
       document.getElementById("number1").value = num1;
       document.getElementById("number2").value = num2;
       document.getElementById("answer").value = "";
@@ -40,7 +45,7 @@
   if (distance <= 0) {
     // clearInterval(x);
     setNumbers()
-    distance = 10;
+    distance = 15;
     //document.getElementById("timer_label").value = "EXPIRED";
   }
 }, 1000);
@@ -59,7 +64,7 @@
 
     // alert(no1 + no2);
 
-    if (no1 + no2 == ans)
+    if (no1 / no2 == ans)
     {
       correct++;
       // alert(correct + ' correct answers');
@@ -68,6 +73,7 @@
     }
     else
     {
+      alert('Correct answer = '+(no1/no2))
       wrong++;
       document.getElementById("wrong_answers").value = wrong;
       // document.getElementById("wrong_answers").style="border:1px solid #ff0000";
@@ -91,22 +97,31 @@
         <h1><span class="label label-default">Aa yu Math</span></h1>
       </div>
     </div>
-    <div>
-      <div align="center" class="col-25">
+    <div class="row">
+      <div align="center" class="col-100">
+        <h3><span class="label label-info">3rd Grade : Division - Upto 10</span></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div align="center" class="col-9">
+        <h3><span class="label label-primary"></span></h3>
+      </div>
+      <div align="center" class="col-16">
         <h3><span class="label label-success">Correct</span></h3>
       </div>
       <div align="center" class="col-9">
         <input type="text" class="form-control" id="correct_answers" value=0 readonly>
       </div>
-      <div align="center" class="col-25">
+      <div align="center" class="col-9">
+        <h3><span class="label label-primary"></span></h3>
+      </div>
+      <div align="center" class="col-16">
         <h3><span class="label label-danger">Incorrect</span></h3>
       </div>
       <div align="center" class="col-9">
         <input type="text" class="form-control" id="wrong_answers" value=0 readonly>
       </div>
-    </div>
-    <div class="row">
-      <div align="right" class="col-100">
+      <div align="right" class="col-25">
         <label for="timer_label" />
         <input type="text" id="timer_label" name="timer_label" value="Timer: 10s" readonly>
       </div>
@@ -120,19 +135,22 @@
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-16">
+      <div align="center" class="col-9">
         <h3><span class="label label-primary"></span></h3>
       </div>
-      <div align="center" class="col-9">
-        <h3><span class="label label-primary">+</span></h3>
+      <div align="center" class="col-16">
+        <h3><span class="label label-primary">Division /</span></h3>
       </div>
       <div align="center" class="col-25">
         <input type="text" id="number2" />
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-25">
-        <h3><span class="label label-info">Answer</span></h3>
+      <div align="center" class="col-9">
+        <h3><span class="label label-primary"></span></h3>
+      </div>
+      <div align="center" class="col-16">
+        <h3><span class="label label-info">Answer = </span></h3>
       </div>
       <div align="center" class="col-25">
         <input type="text" id="answer" autofocus />
