@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
  <script type="text/javascript">
   // Update the count down every 1 second
-  var distance = 20;
+  var count_down = 20;
 
   function setNumbers()
   {
@@ -16,32 +16,15 @@
       document.getElementById("answer").value = "";
   }
 
-  
-
   var x = setInterval(function() {
+  count_down = count_down - 1;
 
-  // Get today's date and time
-  // var now = new Date().getTime();
+  document.getElementById("timer_label").value ="Timer: " + count_down + "s";
 
-  // Find the distance between now and the count down date
-  distance = distance - 1;
-  // alert(distance);
-
-  // Time calculations for days, hours, minutes and seconds
-  // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("timer_label").value ="Timer: " + distance + "s";
-
-  // If the count down is finished, write some text
-  if (distance <= 0) {
-    // clearInterval(x);
+  // If the count down is finished, reset the numbers
+  if (count_down <= 0) {
     setNumbers()
-    distance = 20;
-    //document.getElementById("timer_label").value = "EXPIRED";
+    count_down = 20;
   }
 }, 1000);
 
@@ -57,14 +40,12 @@
     let correct =  parseInt(document.getElementById("correct_answers").value);
     let wrong =  parseInt(document.getElementById("wrong_answers").value);
 
-    // alert(no1 + no2);
-
     if (no1 * no2 == ans)
     {
       correct++;
       // alert(correct + ' correct answers');
       document.getElementById("correct_answers").value = correct;
-      distance=0;
+      count_down=0;
     }
     else
     {
@@ -76,14 +57,49 @@
     return;
 
    }
-   function setGrade()
-   {
-    grade = 1;
-    alert('Grade=', grade);
-   }
+   /* Set the width of the side navigation to 250px */
+  function openNav()
+  {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  /* Set the width of the side navigation to 0 */
+  function closeNav()
+  {
+    document.getElementById("mySidenav").style.width = "0";
+  }
  </script>
 </head>
 <body onload="setNumbers()">
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <span>Grade 1</span>
+  <ul>
+    <li><a href="grade1_add.html">Addition</a></li>
+    <li><a href="grade1_sub.html">Subtraction</a></li>
+  </ul>
+  <span>Grade 2</span>
+  <ul>
+    <li><a href="grade2_add.html">Addition</a></li>
+    <li><a href="grade2_sub.html">Subtraction</a></li>
+    <li><a href="grade2_add_upto_20.html">Addition upto 20</a></li>
+    <li><a href="grade2_sub_upto_20.html">Subtraction upto 20</a></li>
+  </ul>
+  <span>Grade 3</span>
+  <ul>
+    <li><a href="grade3_add.html">Addition</a></li>
+    <li><a href="grade3_sub.html">Subtraction</a></li>
+    <li><a href="grade3_mul_upto_10.html">Multiply upto 10</a></li>
+    <li><a href="grade3_div_upto_10.html">Division upto 10</a></li>
+  </ul>
+  <span>Grade 4</span>
+  <!-- <ul>
+    <li><a href="grade4_add.html">Addition</a></li>
+    <li><a href="grade4_sub.html">Subtraction</a></li>
+  </ul> -->
+  <a href="#">Contact</a>
+</div>
+<div><img src="menu-icon.jpg" alt="Menu" width="30" height="30" onclick="openNav()"/></div>
 <div class="container">
   <!-- <form action="action_page.php"> -->
   <form>
