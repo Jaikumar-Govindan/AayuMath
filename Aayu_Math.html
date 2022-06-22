@@ -48,7 +48,7 @@
  </script>
 
  <script type="text/javascript">
-   function sayHello()
+   function checkAnswer()
    {
     let no1 =  parseInt(document.getElementById("number1").value);
     let no2 =  parseInt(document.getElementById("number2").value);
@@ -83,7 +83,7 @@
  </script>
 </head>
 <body onload="setNumbers()">
-<div class="container">
+<div class="container-fluid">
   <!-- <form action="action_page.php"> -->
   <form>
     <div class="row">
@@ -150,7 +150,7 @@
       <div class="col-9">
       </div>
       <div class="col-25">
-        <input type="Submit" value="Submit" onclick="sayHello();return false;">
+        <input type="Submit" value="Submit" onclick="checkAnswer();return false;">
       </div>
       <div class="col-9"/>
     </div>

@@ -1,8 +1,9 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="./index.css"></style>
-  <!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></style> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aayu Math · Improve your Arithmatic</title>
  <script type="text/javascript">
   // Update the count down every 1 second
   var count_down = 20;
@@ -36,26 +37,26 @@
  </script>
 
  <script type="text/javascript">
-   function sayHello()
+   function checkAnswer()
    {
     let no1 =  parseInt(document.getElementById("number1").value);
     let no2 =  parseInt(document.getElementById("number2").value);
 
     let ans =  document.getElementById("answer").value;
-    let correct =  parseInt(document.getElementById("correct_answers").value);
-    let wrong =  parseInt(document.getElementById("wrong_answers").value);
+    let correct =  parseInt(document.getElementById("correct_answers").textContent.split(":")[0]);
+    let wrong =  parseInt(document.getElementById("wrong_answers").textContent.split(":")[0]);
 
     if (no1 - no2 == ans)
     {
       correct++;
       // alert(correct + ' correct answers');
-      document.getElementById("correct_answers").value = correct;
+      document.getElementById("correct_answers").textContent = correct + " : Correct";
       count_down=0;
     }
     else
     {
       wrong++;
-      document.getElementById("wrong_answers").value = wrong;
+      document.getElementById("wrong_answers").textContent = wrong + " : Incorrect";
       // document.getElementById("wrong_answers").style="border:1px solid #ff0000";
     }
     return;
@@ -104,88 +105,62 @@
   <a href="#">Contact</a>
 </div>
 <div><img src="menu-icon.jpg" alt="Menu" width="30" height="30" onclick="openNav()"/></div>
-<div class="container">
+<div class="container-fluid">
   <!-- <form action="action_page.php"> -->
   <form>
     <div class="row">
-      <div align="center" class="col-100">
+      <div align="center" class="col-sm-12">
         <h1><span class="label label-default">Aa yu Math</span></h1>
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-100">
-        <h3><span class="label label-default">3rd Grade - Subtraction Problems</span></h3>
+      <div align="center" class="col-sm-12">
+        <h3><span class="label label-warning">3rd Grade : Subtraction</span></h3>
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-9">
-        <h3><span class="label label-primary"></span></h3>
+      <div align="left" class="col-sm-6 col-xs-6">
+        <h3><span class="label label-success" id="correct_answers">0 : Correct</span></h3>
       </div>
-      <div align="center" class="col-16">
-        <h3><span class="label label-success">Correct</span></h3>
+      <div align="left" class="col-sm-6 col-xs-6">
+        <h3><span class="label label-danger" id="wrong_answers">0 : Incorrect</span></h3>
       </div>
-      <div align="center" class="col-9">
-        <input type="text" class="form-control" id="correct_answers" value=0 readonly>
+      <div align="left" class="col-sm-6 col-xs-6">
+        <h3><span class="label label-warning" id="skipped_answers">0 : Skipped</span></h3>
       </div>
-      <div align="center" class="col-9">
-        <h3><span class="label label-primary"></span></h3>
-      </div>
-      <div align="center" class="col-16">
-        <h3><span class="label label-danger">Incorrect</span></h3>
-      </div>
-      <div align="center" class="col-9">
-        <input type="text" class="form-control" id="wrong_answers" value=0 readonly>
-      </div>
-      <div align="right" class="col-25">
+      <div align="left" class="col-sm-6 col-xs-6">
         <label for="timer_label" />
         <input type="text" id="timer_label" name="timer_label" value="Timer: 10s" readonly>
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-25">
+      <div align="left" class="col-sm-6 col-xs-6">
         <h3><span class="label label-primary"></span></h3>
       </div>
-      <div align="center" class="col-25">
-        <input type="text" id="number1" />
+      <div align="right" class="col-sm-6 col-xs-6">
+        <input type="text" id="number1" readonly/>
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-9">
-        <h3><span class="label label-primary"></span></h3>
+      <div align="left" class="col-sm-6 col-xs-6">
+        <h3><span class="label label-primary">Subtract -</span></h3>
       </div>
-      <div align="center" class="col-16">
-        <h3><span class="label label-primary">Subtraction -</span></h3>
-      </div>
-      <div align="center" class="col-25">
-        <input type="text" id="number2" />
+      <div align="left" class="col-sm-6 col-xs-6">
+        <input type="text" id="number2" readonly/>
       </div>
     </div>
     <div class="row">
-      <div align="center" class="col-9">
-        <h3><span class="label label-primary"></span></h3>
-      </div>
-      <div align="center" class="col-16">
+      <div align="left" class="col-sm-6 col-xs-6">
         <h3><span class="label label-info">Answer = </span></h3>
       </div>
-      <div align="center" class="col-25">
-        <input type="text" id="answer" autofocus />
+      <div align="left" class="col-sm-6 col-xs-6">
+        <input type="number" id="answer" autofocus />
       </div>
     </div>
-    <!--     <div class="row">
-      <div class="col-25">
-        <label for="subject">Subject</label>
-      </div>
-      <div class="col-75">
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-      </div>
-    </div> -->
     <div class="row">
-      <div class="col-9">
+      <div class="col-sm-12 col-xs-12">
+        <input type="Submit" value="Submit" onclick="checkAnswer();return false;">
       </div>
-      <div class="col-25">
-        <input type="Submit" value="Submit" onclick="sayHello();return false;">
-      </div>
-      <div class="col-9"/>
     </div>
   </form>
 </div>

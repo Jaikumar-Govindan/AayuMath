@@ -1,5 +1,5 @@
 /* Style inputs, select elements and textareas */
-input[type=text], select, textarea{
+input[type=text], [type=number], select, textarea{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -26,44 +26,14 @@ input[type=submit] {
 }
 
 /* Style the container */
-.container {
+.container-fluid{
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  /*padding-top: 30px;*/
+  width: 90%;
 }
 
-/* Floating column for inputs: 5% width */
-.col-9 {
-  float: left;
-  width: 9%;
-  margin-top: 6px;
-}
-/* Floating column for labels: 20% width */
-.col-16 {
-  float: left;
-  width: 16%;
-  margin-top: 6px;
-}
-
-/* Floating column for labels: 25% width */
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-/* Floating column for inputs: 75% width */
-.col-50 {
-  float: left;
-  width: 50%;
-  margin-top: 6px;
-}
-/* Floating column for inputs: 75% width */
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -77,20 +47,20 @@ input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
+  .sidenav a {font-size: 20px;}
+  .sidenav span {font-size: 15px;}
 }
 /* Portrait */
 @media only screen 
   and (min-device-width: 320px) 
-  and (max-device-width: 300px) 
+  and (max-device-width: 500px) 
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) { 
   .col-16, .col-25, .col-75, input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+ }
 
 /* The side navigation menu */
 .sidenav {
@@ -114,7 +84,6 @@ input[type=submit] {
   padding-bottom: 1px;
   padding-left: 8px;
   text-decoration: none;
-  font-size: 15px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -125,7 +94,6 @@ input[type=submit] {
   padding-bottom: 1px;
   padding-left: 8px;
   text-decoration: none;
-  font-size: 15px;
   color: #8080ff;
   display: block;
   transition: 0.3s;
@@ -136,7 +104,6 @@ input[type=submit] {
   padding-bottom: 1px;
   padding-left: 8px;
   text-decoration: none;
-  font-size: 25px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -151,16 +118,17 @@ input[type=submit] {
   position: absolute;
   top: 0;
   right: 25px;
-  font-size: 36px;
   margin-left: 50px;
+  font-size: 30px;
+  /*background-color: white; /* Black*/*/
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 /*#main {
   transition: margin-left .5s;
   padding: 20px;
-}*/
-
+}
+*/
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 /*@media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
