@@ -81,7 +81,7 @@ input[type=submit] {
 /* Portrait */
 @media only screen 
   and (min-device-width: 320px) 
-  and (max-device-width: 500px) 
+  and (max-device-width: 300px) 
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) { 
   .col-16, .col-25, .col-75, input[type=submit] {
