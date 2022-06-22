@@ -10,6 +10,11 @@ This code is for a web application to motivate kids grade 1 thru 4 to practise q
 - Multiplication
 - Division
 
+### Grades
+- Grade 1
+- Grade 2
+- Grade 3
+
 ### Levels
 Based on the levels the problem and the amount of time to solve the problem will change.
 - Just getting started
