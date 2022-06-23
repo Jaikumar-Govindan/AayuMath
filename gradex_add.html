@@ -56,13 +56,13 @@
     if (no1 + no2 == ans)
     {
       correct++;
-      document.getElementById("correct_answers").textContent = correct + " : Correct";
+      document.getElementById("correct_answers").textContent = correct ;
       count_down=0;
     }
     else
     {
       wrong++;
-      document.getElementById("wrong_answers").textContent = wrong + " : Incorrect";
+      document.getElementById("wrong_answers").textContent = wrong;
       // document.getElementById("wrong_answers").style="border:1px solid #ff0000";
     }
     return;
@@ -121,7 +121,12 @@
     </div>
     <div class="row">
       <div align="center" class="col-sm-12">
-        <h3><span class="badge bg-secondary">Level: 1st Grade</span></h3>
+        <h3><span class="badge bg-secondary">Level: 1st Grade 
+            <span class="badge bg-success" id="correct_answers">0</span>
+            <span class="badge bg-warning" id="skipped_answers">0</span>
+            <span class="badge bg-danger" id="wrong_answers">0</span>
+        </span>
+        </h3>
       </div>
     </div>
     <div class="row">
