@@ -25,12 +25,17 @@
 
   var x = setInterval(function() {
   count_down = count_down - 1;
-  document.getElementById("timer_label").textContent =  count_down + "s";
+  document.getElementById("timer_label").textContent =  count_down ;
 
   // If the count down is finished, reset the numbers
   if (count_down <= 0) {
     setNumbers()
     count_down = 10;
+  }
+  if (count_down <=3){
+    document.getElementById("timer_label").className = "badge bg-danger";
+  }else{
+    document.getElementById("timer_label").className = "badge bg-info";
   }
 }, 1000);
 
@@ -141,18 +146,16 @@
         <input class="text-center"  type="text" id="number2" readonly/>
       </div>
       <div align="center" class="col-sm-12 col-md-2">
-        <h3><span class="badge bg-info">=</span></h3>
+        <h3><span class="badge bg-primary">=</span></h3>
       </div>
       <div  class="col-sm-12 col-md-2">
         <input class="text-center"  type="text" id="answer" autofocus />
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-8 text-center">
-        <button  class="btn btn-success mt-2" onclick="checkAnswer();return false;"> Submit</button>
-      </div>
-      <div class="col-sm-1 mt-2 text-center">
-        <h3><span class="badge bg-info" id="timer_label">10s</span></h3>
+      <div class="col-sm-12 text-center">
+        <button  class="btn btn-success mt-2" onclick="checkAnswer();return false;"> 
+        Submit <span class="badge bg-info" id="timer_label">4</span></button>
       </div>
     </div>
   </form>
