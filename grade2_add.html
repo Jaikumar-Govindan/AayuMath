@@ -6,7 +6,8 @@
   <title>Aayu Math · Improve your Arithmatic</title>
  <script type="text/javascript">
   // Update the count down every 1 second
-  var count_down = 15;
+    var count_down = 15;
+    var allowed_attempts = 20;
 
   function setNumbers()
   {
@@ -22,9 +23,24 @@
   document.getElementById("timer_label").value ="Timer: " + count_down + "s";
 
   // If the count down is finished, reset the numbers
-  if (count_down <= 0) {
-    setNumbers()
-    count_down = 15;
+  if (count_down <= 0) 
+  {
+        setNumbers()
+        let skipped =  parseInt(document.getElementById("skipped_answers").textContent.split(":")[0]);
+        let correct =  parseInt(document.getElementById("correct_answers").textContent.split(":")[0]);
+        let wrong =  parseInt(document.getElementById("wrong_answers").textContent.split(":")[0]);
+
+        if (count_down != -1 && document.getElementById("skipped_answers") != null)
+        {
+          skipped++;
+          document.getElementById("skipped_answers").textContent = skipped + " : Skipped";
+        }
+        // if (skipped + correct + wrong >= allowed_attempts)
+        // {
+        //   alert ('Great Job kiddo. You attempted ' + allowed_attempts + ' problems.!!!');
+        //   window.location = 'soon.html';
+        // }
+     count_down = 15;
   }
 }, 1000);
 

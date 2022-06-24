@@ -4,35 +4,55 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aayu Math · Improve your Arithmatic</title>
- <script type="text/javascript">
-  // Update the count down every 1 second
-  var count_down = 15;
+  <script type="text/javascript">
+    // Update the count down every 1 second
+    var count_down = 15;
+    var allowed_attempts = 20;
 
-  function setNumbers()
-  {
+    function setNumbers()
+    {
       var num1 = Math.floor(Math.random() * 100);
       var num2 = Math.floor(Math.random() * 10);
       while ((num1 < num2) || num2 == 0 || (num1%num2!=0))
       {
-         // num1 = Math.floor(Math.random() * 100);
+         num1 = Math.floor(Math.random() * 100);
          num2 = Math.floor(Math.random() * 10);
       }
       document.getElementById("number1").value = num1;
       document.getElementById("number2").value = num2;
       document.getElementById("answer").value = "";
-  }
+    }
 
-  var x = setInterval(function() {
-  count_down = count_down - 1;
-  document.getElementById("timer_label").value ="Timer: " + count_down + "s";
+    var x = setInterval(function() 
+    {
+      count_down = count_down - 1;
+      document.getElementById("timer_label").value ="Timer: " + count_down + "s";
 
-  // If the count down is finished, write some text
-  if (count_down <= 0) {
-    setNumbers()
-    count_down = 15;
-  }
-}, 1000);
+      // If the count down is finished, write some text
+      if (count_down <= 0)
+      {
+        setNumbers()
+        let skipped =  parseInt(document.getElementById("skipped_answers").textContent.split(":")[0]);
+        let correct =  parseInt(document.getElementById("correct_answers").textContent.split(":")[0]);
+        let wrong =  parseInt(document.getElementById("wrong_answers").textContent.split(":")[0]);
 
+        if (count_down != -1 && document.getElementById("skipped_answers") != null)
+        {
+          skipped++;
+          document.getElementById("skipped_answers").textContent = skipped + " : Skipped";
+        }
+        if (skipped + correct + wrong >= allowed_attempts)
+        {
+          alert ('Great Job kiddo. You attempted ' + allowed_attempts + ' problems.!!!');
+          // message="jai";
+          // $("#alert_template button").after('<span>Some text</span>');
+          // $('#alert_template').fadeIn('slow');
+          // window.location = 'soon.html';
+        }
+
+        count_down = 15;
+      }
+    }, 1000);
  </script>
 
  <script type="text/javascript">
@@ -74,6 +94,9 @@
  </script>
 </head>
 <body onload="setNumbers()">
+  <div class="alert alert-info" id="alert_template" style="display: none;">
+    <button type="button" class="close">×</button>
+  </div>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
@@ -129,7 +152,7 @@
       </div>
       <div align="left" class="col-sm-6 col-xs-6">
         <label for="timer_label" />
-        <input type="text" id="timer_label" name="timer_label" value="Timer: 10s" readonly>
+        <input type="text" id="timer_label" name="timer_label" value="Timer: 15s" readonly>
       </div>
     </div>
     <div class="row">
