@@ -26,7 +26,7 @@ function checkAnswer(math=true)
     else
     {
     
-      if( ans == word)
+      if( ans.toLowerCase() == word.toLowerCase())
       {
         correct++;
         document.getElementById("correct_answers").textContent = correct ;
