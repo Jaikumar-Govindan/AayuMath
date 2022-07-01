@@ -5,8 +5,8 @@ function checkAnswer(math=true)
     let wrong =  parseInt(document.getElementById("wrong_answers").textContent);
     if(math)
     {
-      let no1 =  parseInt(document.getElementById("number1").value);
-      let no2 =  parseInt(document.getElementById("number2").value);
+      let no1 =  parseInt(document.getElementById("number1").textContent);
+      let no2 =  parseInt(document.getElementById("number2").textContent);
 
       // alert(no1 + no2);
 
@@ -67,12 +67,14 @@ function checkAnswer(math=true)
         if(document.getElementById("number1") != null)
         {
           var num1 = Math.floor(Math.random() * 10);
-          document.getElementById("number1").value = num1;  
+          document.getElementById("number1").textContent = num1;  
+          console.log("num1: " + num1);
         }
         if(document.getElementById("number2") != null)
         {
           var num2 = Math.floor(Math.random() * 10);
-          document.getElementById("number2").value = num2;  
+          document.getElementById("number2").textContent = num2;  
+          console.log("num2: " + num2);
         }
         document.getElementById("answer").value = "";
     }
