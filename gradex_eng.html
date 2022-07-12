@@ -4,14 +4,11 @@
   <link rel="stylesheet" type="text/css" href="./index.css"></style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aayu Math : Improve your Arithmatic</title>
-
+  <title>Improve your Math & English</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
-<body onload="setNumbers()">
-<div id="mySidenav" class="sidenav">
+<body onload="getWordSoundFile(1)">
+</body><div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
   <span>Grade 1</span>
@@ -34,10 +31,6 @@
     <li><a href="grade3_div_upto_10.html">Division upto 10</a></li>
   </ul>
   <span>Grade 4</span>
-  <!-- <ul>
-    <li><a href="grade4_add.html">Addition</a></li>
-    <li><a href="grade4_sub.html">Subtraction</a></li>
-  </ul> -->
   <a href="#">Contact</a>
 </div>
 <div><img src="menu-icon.jpg" alt="Menu" width="30" height="30" onclick="openNav()"/></div>
@@ -52,7 +45,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Math Practice</h5>
+          <h5 class="modal-title" id="exampleModalLabel">English Practice</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -72,7 +65,7 @@
   <form>
     <div class="row">
       <div align="center" class="col-sm-6">
-        <h1><span class="badge bg-dark">Math</span></h1>
+        <h3><span class="badge bg-dark">Spelling</span></h3>
       </div>
       <div align="center" class="col-sm-6">
         <h3><span class="badge bg-secondary">Level 1 
@@ -83,25 +76,28 @@
         </h3>
       </div>
     </div>
-    <div class="row badge bg-secondary align-items-center ">
-      <div class="col-sm-12 display-2 ">
-        <span id="number1">0</span>
-        <span id="mathid">+</span>
-        <span id="number2">0</span>
-        <span></span>=</span>
-        <input class="text-center w-50"  type="tel" id="answer" autofocus />
-      </div>
+    <div class="row">
+        <div class="col-sm-6 embed-responsive-4by3">
+            <audio id="word_audio" controls class="embed-responsive-item" onplay="audioPlayed=true">
+                <source id="word_audio_src" src="https://media.merriam-webster.com/audio/prons/en/us/mp3/v/volumi02.mp3">
+            </audio>
+        </div>
+        <div  class="col-sm-6">
+            <input class="text-center"  type="text" id="answer" autofocus />
+        </div>
     </div>
     <div class="row">
       <div class="col-sm-12 text-center">
-        <button  class="btn btn-success mt-2" onclick="checkAnswer();return false;"> 
+        <button  class="btn btn-success mt-2" onclick="checkAnswer(false);return false;"> 
         Submit <span class="badge bg-info" id="timer_label">10</span></button>
       </div>
     </div>
   </form>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script type="text/javascript" src="site.js">
 </script>  
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
   
 </html>
