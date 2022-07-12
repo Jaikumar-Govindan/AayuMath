@@ -4,27 +4,56 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aayu Math : Improve your Arithmatic</title>
- <script type="text/javascript">
-  // Update the count down every 1 second
-    var count_down = 10;
+  <script type="text/javascript">
+    // Update the count down every 1 second
+    var count_down = 75;
     var allowed_attempts = 20;
 
-  function setNumbers()
-  {
-      var num1 = Math.floor(Math.random() * 20);
-      var num2 = Math.floor(Math.random() * 20);
+    function setNumbers()
+    {
+      var num1 = Math.floor(Math.random() * 1000);
+      var num2 = Math.floor(Math.random() * 100);
+      while ((num1 < num2) || num2 == 0 || num2 == 1 || num2 == 10 || (num1%num2!=0))
+      {
+         num1 = Math.floor(Math.random() * 1000);
+         num2 = Math.floor(Math.random() * 100);
+      }
       document.getElementById("number1").value = num1;
       document.getElementById("number2").value = num2;
       document.getElementById("answer").value = "";
-  }
+    }
 
-  var x = setInterval(function() {
-  count_down = count_down - 1;
-  document.getElementById("timer_label").value ="Timer: " + count_down + "s";
+    function create_modal()
+    {
+      const modal = document.createElement('div');
+      modal.classList.add('modal_overlay');
+      modal.id = 'modal';
+      modal.hidden = false;
 
-  // If the count down is finished, reset the numbers
-  if (count_down <= 0) 
-  {
+      modal.innerHTML = `
+        <div class="modal_center">
+          <span class="close">&times;</span>
+          <h4>Great Job kiddo !!</h4>
+          <p>You have attempted ` + allowed_attempts +
+          ` problems.</p>
+          <button class="btn btn-danger" onclick="window.location = 'soon.html';">Close</button>
+        </div>
+      `;
+
+      modal.querySelector('.close').addEventListener('click', () => { modal.hidden = true; });
+
+      document.body.appendChild(modal);
+
+    }
+
+    var x = setInterval(function() 
+    {
+      count_down = count_down - 1;
+      document.getElementById("timer_label").value ="Timer: " + count_down + "s";
+
+      // If the count down is finished, write some text
+      if (count_down <= 0)
+      {
         setNumbers()
         let skipped =  parseInt(document.getElementById("skipped_answers").textContent.split(":")[0]);
         let correct =  parseInt(document.getElementById("correct_answers").textContent.split(":")[0]);
@@ -37,13 +66,16 @@
         }
         // if (skipped + correct + wrong >= allowed_attempts)
         // {
-        //   alert ('Great Job kiddo. You attempted ' + allowed_attempts + ' problems.!!!');
-        //   window.location = 'soon.html';
-        // }
-    count_down = 10;
-  }
-}, 1000);
+        //   // alert ('Great Job kiddo. You attempted ' + allowed_attempts + ' problems.!!!');
+        //   create_modal();
 
+        //   count_down = 600; // Delay occurrance of any more modals.
+        //   return;
+        // }
+
+        count_down = 75;
+      }
+    }, 1000);
  </script>
 
  <script type="text/javascript">
@@ -56,9 +88,10 @@
     let correct =  parseInt(document.getElementById("correct_answers").textContent.split(":")[0]);
     let wrong =  parseInt(document.getElementById("wrong_answers").textContent.split(":")[0]);
 
-    if (no1 + no2 == ans)
+    if (no1 / no2 == ans)
     {
       correct++;
+      // alert(correct + ' correct answers');
       document.getElementById("correct_answers").textContent = correct + " : Correct";
       count_down=0;
     }
@@ -123,7 +156,7 @@
     </div>
     <div class="row">
       <div align="center" class="col-sm-12">
-        <h3><span class="label label-warning">2nd Grade : Addition - Upto 20</span></h3>
+        <h3><span class="label label-warning">4th Grade : Division - Upto 100</span></h3>
       </div>
     </div>
     <div class="row">
@@ -138,7 +171,7 @@
       </div>
       <div align="left" class="col-sm-6 col-xs-6">
         <label for="timer_label" />
-        <input type="text" id="timer_label" name="timer_label" value="Timer: 10s" readonly>
+        <input type="text" id="timer_label" name="timer_label" value="Timer: 75s" readonly>
       </div>
     </div>
     <div class="row">
@@ -151,7 +184,7 @@
     </div>
     <div class="row">
       <div align="left" class="col-sm-6 col-xs-6">
-        <h3><span class="label label-primary">Addition +</span></h3>
+        <h3><span class="label label-primary">Divide /</span></h3>
       </div>
       <div align="left" class="col-sm-6 col-xs-6">
         <input type="text" id="number2" readonly/>

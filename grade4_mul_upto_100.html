@@ -6,20 +6,27 @@
   <title>Aayu Math : Improve your Arithmatic</title>
  <script type="text/javascript">
   // Update the count down every 1 second
-    var count_down = 10;
+    var count_down = 75;
     var allowed_attempts = 20;
 
   function setNumbers()
   {
-      var num1 = Math.floor(Math.random() * 20);
-      var num2 = Math.floor(Math.random() * 20);
+      var num1 = Math.floor(Math.random() * 100);
+      var num2 = Math.floor(Math.random() * 100);
+      while (num1 <= 10 || num2 <= 10 || num1 == 100 || num2 == 100)
+      {
+         num1 = Math.floor(Math.random() * 100);
+         num2 = Math.floor(Math.random() * 100);
+      }
       document.getElementById("number1").value = num1;
       document.getElementById("number2").value = num2;
       document.getElementById("answer").value = "";
+      document.getElementById("answer").style="1px solid #ccc;";      
   }
 
   var x = setInterval(function() {
   count_down = count_down - 1;
+
   document.getElementById("timer_label").value ="Timer: " + count_down + "s";
 
   // If the count down is finished, reset the numbers
@@ -40,7 +47,7 @@
         //   alert ('Great Job kiddo. You attempted ' + allowed_attempts + ' problems.!!!');
         //   window.location = 'soon.html';
         // }
-    count_down = 10;
+    count_down = 75;
   }
 }, 1000);
 
@@ -56,17 +63,27 @@
     let correct =  parseInt(document.getElementById("correct_answers").textContent.split(":")[0]);
     let wrong =  parseInt(document.getElementById("wrong_answers").textContent.split(":")[0]);
 
-    if (no1 + no2 == ans)
+    if (no1 * no2 == ans)
     {
       correct++;
+      // alert(correct + ' correct answers');
       document.getElementById("correct_answers").textContent = correct + " : Correct";
+      // document.getElementById("answer").border = lightgreen;
+      document.getElementById("answer").style="border:2px solid #02FF02";
+      var y = setTimeout(function() {
+        var dummy=1;
+      },2000);
       count_down=0;
     }
     else
     {
       wrong++;
       document.getElementById("wrong_answers").textContent = wrong + " : Incorrect";
-      // document.getElementById("wrong_answers").style="border:1px solid #ff0000";
+      document.getElementById("answer").style="border:2px solid #ff0000";
+      var y = setTimeout(function() {
+        var dummy=1;
+      },2000);
+      count_down=0;
     }
     return;
 
@@ -123,7 +140,7 @@
     </div>
     <div class="row">
       <div align="center" class="col-sm-12">
-        <h3><span class="label label-warning">2nd Grade : Addition - Upto 20</span></h3>
+        <h3><span class="label label-warning">4th Grade : Multiplication - Upto 100</span></h3>
       </div>
     </div>
     <div class="row">
@@ -138,7 +155,7 @@
       </div>
       <div align="left" class="col-sm-6 col-xs-6">
         <label for="timer_label" />
-        <input type="text" id="timer_label" name="timer_label" value="Timer: 10s" readonly>
+        <input type="text" id="timer_label" name="timer_label" value="Timer: 75s" readonly>
       </div>
     </div>
     <div class="row">
@@ -151,7 +168,7 @@
     </div>
     <div class="row">
       <div align="left" class="col-sm-6 col-xs-6">
-        <h3><span class="label label-primary">Addition +</span></h3>
+        <h3><span class="label label-primary">Multiply x</span></h3>
       </div>
       <div align="left" class="col-sm-6 col-xs-6">
         <input type="text" id="number2" readonly/>
