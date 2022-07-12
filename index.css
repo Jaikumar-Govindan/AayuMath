@@ -129,8 +129,24 @@ input[type=submit] {
   padding: 20px;
 }
 */
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-/*@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}*/
+
+.modal_center {
+  margin: auto;
+  top:  30%;
+  width: 60%;
+  border: 5px solid #FF0000;
+  padding: 10px;
+  background: black;
+  color: white;
+}
+
+.modal_overlay {
+    background: lightgray;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    /*z-index: 20000;*/
+    left: 0px;
+}

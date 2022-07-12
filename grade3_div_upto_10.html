@@ -3,11 +3,11 @@
   <link rel="stylesheet" type="text/css" href="./index.css"></style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aayu Math · Improve your Arithmatic</title>
+  <title>Aayu Math : Improve your Arithmatic</title>
   <script type="text/javascript">
     // Update the count down every 1 second
     var count_down = 15;
-    var allowed_attempts = 20;
+    var allowed_attempts = 3;
 
     function setNumbers()
     {
@@ -21,6 +21,29 @@
       document.getElementById("number1").value = num1;
       document.getElementById("number2").value = num2;
       document.getElementById("answer").value = "";
+    }
+
+    function create_modal()
+    {
+      const modal = document.createElement('div');
+      modal.classList.add('modal_overlay');
+      modal.id = 'modal';
+      modal.hidden = false;
+
+      modal.innerHTML = `
+        <div class="modal_center">
+          <span class="close">&times;</span>
+          <h4>Great Job kiddo !!</h4>
+          <p>You have attempted ` + allowed_attempts +
+          ` problems.</p>
+          <button class="btn btn-danger" onclick="window.location = 'soon.html';">Close</button>
+        </div>
+      `;
+
+      modal.querySelector('.close').addEventListener('click', () => { modal.hidden = true; });
+
+      document.body.appendChild(modal);
+
     }
 
     var x = setInterval(function() 
@@ -43,11 +66,11 @@
         }
         if (skipped + correct + wrong >= allowed_attempts)
         {
-          alert ('Great Job kiddo. You attempted ' + allowed_attempts + ' problems.!!!');
-          // message="jai";
-          // $("#alert_template button").after('<span>Some text</span>');
-          // $('#alert_template').fadeIn('slow');
-          // window.location = 'soon.html';
+          // alert ('Great Job kiddo. You attempted ' + allowed_attempts + ' problems.!!!');
+          create_modal();
+
+          count_down = 600; // Delay occurrance of any more modals.
+          return;
         }
 
         count_down = 15;
@@ -94,9 +117,6 @@
  </script>
 </head>
 <body onload="setNumbers()">
-  <div class="alert alert-info" id="alert_template" style="display: none;">
-    <button type="button" class="close">×</button>
-  </div>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
