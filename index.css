@@ -120,15 +120,8 @@ input[type=submit] {
   right: 25px;
   margin-left: 50px;
   font-size: 30px;
-  /*background-color: white; /* Black*/*/
+  /*background-color: white; */
 }
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-/*#main {
-  transition: margin-left .5s;
-  padding: 20px;
-}
-*/
 
 .modal_center {
   margin: auto;
@@ -151,8 +144,6 @@ input[type=submit] {
     left: 0px;
 }
 
-.bg-info{color: #fff;background-color:#ffffff!important}
-.bg-danger{color: #fff;background-color:#ff0000!important}
 .btn
 {
   color: #198754;

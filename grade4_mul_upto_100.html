@@ -36,6 +36,24 @@
       count_down = count_down - 1;
 
       document.getElementById("timer_label").textContent = count_down;
+      document.getElementById("questions_left").textContent = "Q : " + allowed_attempts;
+
+
+      if (allowed_attempts <= 0)
+      {
+        addTable();
+        showModal();
+        document.getElementById("wrong_answers").textContent = "0 : " + String.fromCodePoint(0x2718);
+        document.getElementById("correct_answers").textContent = "0 : " + String.fromCodePoint(0x2713) ;
+        document.getElementById("skipped_answers").textContent = "0 : ?" ;
+
+        number1 = [];
+        number2 = [];
+        answered = [];
+        expected = [];
+
+        allowed_attempts = 25;
+      }
 
       if (count_down <= 10)
       {
@@ -45,29 +63,19 @@
       // If the count down is finished, reset the numbers
       if (count_down <= 0)
       {
-            setNumbers()
-            let skipped =  parseInt(document.getElementById("skipped_answers").textContent.split(":")[0]);
-            let correct =  parseInt(document.getElementById("correct_answers").textContent.split(":")[0]);
-            let wrong =  parseInt(document.getElementById("wrong_answers").textContent.split(":")[0]);
+        setNumbers()
+        let skipped =  parseInt(document.getElementById("skipped_answers").textContent.split(":")[0]);
+        let correct =  parseInt(document.getElementById("correct_answers").textContent.split(":")[0]);
+        let wrong =  parseInt(document.getElementById("wrong_answers").textContent.split(":")[0]);
 
-            if (count_down != -1 && document.getElementById("skipped_answers") != null)
-            {
-              skipped++;
-              document.getElementById("skipped_answers").textContent = skipped + " : ?";
-            }
-            if (skipped + correct + wrong >= allowed_attempts)
-            {
-              addTable();
-              showModal();
-              document.getElementById("wrong_answers").textContent = "0 : " + String.fromCodePoint(0x2718);
-              document.getElementById("correct_answers").textContent = "0 : " + String.fromCodePoint(0x2713) ;
-              document.getElementById("skipped_answers").textContent = "0 : ?" ;
+        if (count_down != -1 && document.getElementById("skipped_answers") != null)
+        {
+          skipped++;
+          document.getElementById("skipped_answers").textContent = skipped + " : ?";
+        }
+        // if (skipped + correct + wrong >= allowed_attempts)
 
-              number1 = [];
-              number2 = [];
-              answered = [];
-              expected = [];
-            }
+        allowed_attempts--;
         count_down = 75;
       }
     }, 1000);
@@ -211,6 +219,7 @@
 <div><img src="menu-icon.jpg" alt="Menu" width="30" height="30" onclick="openNav()"/></div>
 <div class="modal fade" 
         id="completionModal" 
+        style="overflow-y:auto; height: 500px;"
         tabindex="-1" 
         aria-labelledby="exampleModalLabel" 
         aria-hidden="true">
@@ -254,6 +263,9 @@
       </div>
       <div align="center" class="col">
         <h3><span title="Skipped Questions" class="badge bg-warning" id="skipped_answers">0 : ?</span></h3>
+      </div>
+      <div align="center" class="col">
+        <h3><span title="Remaining Questions" class="badge bg-info" id="questions_left"></span></h3>
       </div>
     </div>
     <div class="row">
