@@ -150,3 +150,20 @@ input[type=submit] {
     /*z-index: 20000;*/
     left: 0px;
 }
+
+.bg-info{color: #fff;background-color:#ffffff!important}
+.bg-danger{color: #fff;background-color:#ff0000!important}
+.btn
+{
+  color: #198754;
+}
+.btn-success
+{
+  color:#fff;
+  font-weight:bold;
+  border-color:#198754;
+}
+.colorify {
+    background: red;
+    color: white;
+  }

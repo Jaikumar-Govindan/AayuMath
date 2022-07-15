@@ -6,8 +6,8 @@
   <title>Aayu Math : Improve your Arithmatic</title>
   <script type="text/javascript">
     // Update the count down every 1 second
-    var count_down = 15;
-    var allowed_attempts = 3;
+    var count_down = 25;
+    var allowed_attempts = 25;
 
     function setNumbers()
     {
@@ -69,11 +69,11 @@
           // alert ('Great Job kiddo. You attempted ' + allowed_attempts + ' problems.!!!');
           create_modal();
 
-          count_down = 600; // Delay occurrance of any more modals.
+          // count_down = 600; // Delay occurrance of any more modals.
           return;
         }
 
-        count_down = 15;
+        count_down = 25;
       }
     }, 1000);
  </script>
@@ -91,7 +91,6 @@
     if (no1 / no2 == ans)
     {
       correct++;
-      // alert(correct + ' correct answers');
       document.getElementById("correct_answers").textContent = correct + " : Correct";
       count_down=0;
     }
@@ -171,7 +170,7 @@
       </div>
       <div align="left" class="col-sm-6 col-xs-6">
         <label for="timer_label" />
-        <input type="text" id="timer_label" name="timer_label" value="Timer: 15s" readonly>
+        <input type="text" id="timer_label" name="timer_label" value="Timer: 25s" readonly>
       </div>
     </div>
     <div class="row">
